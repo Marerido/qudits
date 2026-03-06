@@ -91,6 +91,7 @@ class QuantumCircuit:
         "rh": "rh",
         "rdu": "randu",
         "rz": "rz",
+        "rx": "rx",
         "virtrz": "virtrz",
         "s": "s",
         "x": "x",
@@ -279,6 +280,10 @@ class QuantumCircuit:
             self, "RandU" + str([self.dimensions[i] for i in qudits]), qudits, [self.dimensions[i] for i in qudits]
         )
 
+    @add_gate_decorator
+    def rx(self, qudit: int, parameters: list[int | float], controls: ControlData | None = None) -> Rx:
+        return Rx(self, "Rx" + str(self.dimensions[qudit]), qudit, parameters, self.dimensions[qudit], controls)
+    
     @add_gate_decorator
     def rz(self, qudit: int, parameters: list[int | float], controls: ControlData | None = None) -> Rz:
         return Rz(self, "Rz" + str(self.dimensions[qudit]), qudit, parameters, self.dimensions[qudit], controls)
