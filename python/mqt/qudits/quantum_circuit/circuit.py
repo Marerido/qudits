@@ -15,6 +15,7 @@ from typing import TYPE_CHECKING, Any, ClassVar, TypeVar, cast
 
 import numpy as np
 
+from .gates.rx import Rx
 from .components import ClassicRegister, QuantumRegister
 from .gates import (
     LS,
